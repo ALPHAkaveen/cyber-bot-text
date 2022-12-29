@@ -1822,18 +1822,7 @@ case 'tomp4': case 'tovideo': {
 	    })
 	    }
 	    break
-	    case 'yts': case 'ytsearch': {
-                if (!text) throw `Example : ${prefix + command} story wa anime`
-                let yts = require("youtube-yts")
-                let search = await yts(text)
-                let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
-                let no = 1
-                for (let i of search.all) {
-                    teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
-                }
-                XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
-            }
-            break
+	   
         case 'google': {
                 if (!text) throw `Example : ${prefix + command} fatih arridho`
                 let google = require('google-it')
@@ -1848,198 +1837,280 @@ case 'tomp4': case 'tovideo': {
                 })
                 }
                 break
-case 'video': { 
-if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
-            let ytsvideo = require("youtube-yts")
-            let videosearch = await ytsvideo(text)
-            listSerch = []
-            teskd = `\nSearched Video: ${text}\n`
-            for (let i of videosearch.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp4 ${i.url}`,
-                    description: `Duration: ${i.timestamp}`
-                })
-            }
-            let sections = [
-                {
-                    title: "Top " + videosearch.all.length + " videos thats matches search result",
-                    rows: listSerch
-                }
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: botname,
-                title: ``,
-                buttonText: "Videos",
-                mentions: parseMention(teskd), sections
-            }
-            return XeonBotInc.sendMessage(m.chat, listMessage, {
-                quoted: m
-            })
-            }
-        break    
-        case 'song':{
-        if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
-            let ytslagu = require("youtube-yts")
-            let lagusearch = await ytslagu(text)
-            listSerch = []
-            teskd = `Searched Song: ${text}\n`
-            for (let i of lagusearch.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp3 ${i.url}`,
-                    description: `Duration: ${i.timestamp}`
-                })
-            }
-            const sections = [
-                {
-                    title: "Top " + lagusearch.all.length + " songs that matched search result",
-                    rows: listSerch
-                }
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: botname,
-                title: ``,
-                buttonText: "Songs",
-                mentions: parseMention(teskd), sections
-            }
-            return XeonBotInc.sendMessage(m.chat, listMessage, {
-                quoted: m
-            })
+
+
+
+
+ 
+//bot song 
+
+
+break
+case 'play': case 'yt':{ 
+    XeonBotInc.sendMessage(from, { react: { text: `🔎`, key: m.key }})    
+        if (!text) return reply(`Example : ${prefix + command} lelena`)
+let yts = require("yt-search")
+let search = await yts(text)
+let anu = search.videos[0]
+let buttons = [
+{buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: 'VIDEO'}, type: 1},
+{buttonId: `ytmp3 ${anu.url} 128kbps`, buttonText: {displayText: 'AUDIO'}, type: 1}
+]
+let buttonMessage = {
+image: { url: anu.thumbnail },
+caption: `*┏━━━❬KAVEESHA MD📌❭*
+ 
+*📥 YOUTUBE DOWNLODER* 
+
+*┃🎬Title :* ${anu.title} 
+
+*┃🎲Duration :* ${anu.timestamp} 
+
+*┃🍁Author :* ${anu.author.name} 
+
+*┃🍁Url :* ${anu.url} 
+
+*┃🔖Runtime :* ${runtime(process.uptime())}
+
+
+
+┗━━━━━━━━━❊`,
+footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
+buttons: buttons,
+headerType: 4,
+}
+XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+}
+break
+case 'song': { 
+XeonBotInc.sendMessage(from, { react: { text: `🎧`, key: m.key }})    
+if (!text) return reply(`Example : ${prefix + command} lelena`)
+let yts = require("yt-search")
+let search = await yts(text)
+let anu = search.videos[0]
+let buttons = [
+{buttonId: `ytdoc ${anu.url}`, buttonText: {displayText: 'DOCUMENT'}, type: 1},
+{buttonId: `ytmp3 ${anu.url} 128kbps`, buttonText: {displayText: 'AUDIO'}, type: 1}
+]
+let buttonMessage = {
+image: { url: anu.thumbnail },
+caption: `*┏━━━❬KAVEESHA MD📌❭*
+ 
+*📥 SONG DOWNLODER* 
+
+*┃🎬TTitle :* ${anu.title} 
+
+*┃🎲Duration :* ${anu.timestamp} 
+
+*┃🍁Author :* ${anu.author.name} 
+
+*┃🍁Url :* ${anu.url} 
+
+*┃🔖Runtime :* ${runtime(process.uptime())}
+
+
+
+┗━━━━━━━━━❊`,
+footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳 `,
+buttons: buttons,
+headerType: 4,
+}
+XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+}
+break
+case 'ytdl': {
+if (!text) return reply(`Example : ${prefix + command} lelena`)
+let yts = require("yt-search")
+let search = await yts(text)
+let anu = search.videos[0]  
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+listMessage :{
+title: `Hi ${pushname}`,
+description: `*┏━━━❬KAVEESHA MD📌❭*
+ 
+📥 ADVANCE YOUTUBE DOWNLODER* 
+
+*┃🎬Title :* ${anu.title} 
+
+*┃🎲Duration :* ${anu.timestamp} 
+
+*┃🍁Author :* ${anu.author.name} 
+
+*┃🍁Url :* ${anu.url} 
+
+*┃🔖Description : ${anu.description}
+
+
+┗━━━━━━━━━❊`,
+buttonText: "Menu",
+footerText: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
+listType: "SINGLE_SELECT",
+sections: [{
+"title": "MP4",
+"rows": [
+    {
+        "title": "1080p",
+        "description": "1080p Video",
+        "rowId": `${prefix}ytmp4 ${anu.url} 1080p`
+    },
+    {
+       "title": "720p",
+       "description": "720p Video",
+       "rowId": `${prefix}ytmp4 ${anu.url} 720p`
+   },
+   {
+       "title": "480p",
+       "description": "480p Video",
+       "rowId": `${prefix}ytmp4 ${anu.url} 480p`
+   },
+   {
+       "title": "360p",
+       "description": "360p Video",
+       "rowId": `${prefix}ytmp4 ${anu.url} 360p`
+   },
+   {
+       "title": "240",
+       "description": "240p Video",
+       "rowId": `${prefix}ytmp4 ${anu.url} 240p`
+   },
+   {
+       "title": "144p",
+       "description": "144pp Video",
+       "rowId": `${prefix}ytmp4 ${anu.url} 144p`
+   }
+]
+},
+{
+"title": "MP3 Audio",
+"rows": [
+    {
+        "title": "Medium",
+        "description": "Medium Mp3 Audio",
+        "rowId": `${prefix}ytmp3 ${anu.url} 320kbps`
+    },
+    {
+        "title": "Low",
+        "description": "Low Mp3 Audio",
+        "rowId": `${prefix}ytmp3 ${anu.url} 128kbps`
+        }
+    
+]
+},
+{
+"title": "MP3 Document",
+"rows": [
+    {
+        "title": "Medium",
+        "description": "Medium Mp3 Document",
+        "rowId": `${prefix}ytdoc ${anu.url} 320kbps`
+    },
+    {
+       "title": "Low",
+       "description": "Low Mp3 Document",
+       "rowId": `${prefix}ytdoc ${anu.url} 128kbps`
+   }
+]
+}
+
+ ],
+listType: 1
+}
+}), {})
+XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+}
+break
+	case 'ytdoc': {
+                if (!text) return reply(mess.linkm)
+                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)
+                anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube?link=${text}`)        
+                if (anu.filesize_video >= 999999) return reply('*File Over Limit* '+util.format(anu))
+                const docdown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} Video ... 🔄*`)               
+                     tummb = await getBuffer(anu.thumb)
+                audio = await getBuffer(anu.audio)  
+                await XeonBotInc.sendMessage(from, { delete: docdown.key })
+                const docup = await XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} Video ... 📤*`)     
+                const doc = await XeonBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => reply(mess.error))
+                await XeonBotInc.sendMessage(from, { delete: docup.key })
             }
             break
-        
-    case 'play': case 'ytplay':{
-                if (!text) throw `Example : ${prefix + command} anime whatsapp status`
-                let yts = require("youtube-yts")
-                let search = await yts(text)
-                let anulay = search.videos[Math.floor(Math.random() * search.videos.length)]
-                let buttons = [
-                    {buttonId: `playmp3 ${anulay.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
-                    {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '► Video'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: anulay.thumbnail },
-                    caption: `
-${themeemoji} Title : ${anulay.title}
-${themeemoji} Ext : Search
-${themeemoji} ID : ${anulay.videoId}
-${themeemoji} Duration : ${anulay.timestamp}
-${themeemoji} Viewers : ${anulay.views}
-${themeemoji} Upload At : ${anulay.ago}
-${themeemoji} Author : ${anulay.author.name}
-${themeemoji} Channel : ${anulay.author.url}
-${themeemoji} Description : ${anulay.description}
-${themeemoji} Url : ${anulay.url}`,
-                    footer: botname,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'playmp3': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
-if (!text) throw `Example : ${prefix + command} anime whatsapp status`
-const xeonplaymp3 = require('./lib/ytdl2')
-let yts = require("youtube-yts")
-        let search = await yts(text)
-        let anup3k = search.videos[0]
-const pl= await xeonplaymp3.mp3(anup3k.url)
-await XeonBotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(pl.path),
-    fileName: anup3k.title + '.mp3',
-    mimetype: 'audio/mp4', ptt: true,
-    contextInfo:{
-        externalAdReply:{
-            title:anup3k.title,
-            body: botname,
-            thumbnail: await fetchBuffer(pl.meta.image),
-            mediaType:2,
-            mediaUrl:anup3k.url,
-        }
-
-    },
-},{quoted:m})
-await fs.unlinkSync(pl.path)
-break
-case 'playmp4': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
-if(!text) throw `Example : ${prefix + command} anime whatsapp status`
-const xeonplaymp4 = require('./lib/ytdl2')
-let ytsmp4 = require("youtube-yts")
-        let xeonsearch13 = await ytsmp4(text)
-        let anuvidoke4 = xeonsearch13.videos[0]
-const pl2= await xeonplaymp4.mp4(anuvidoke4.url)
-await XeonBotInc.sendMessage(m.chat,{
-    document: {url:pl2.videoUrl},
-    fileName: anuvidoke4.title + '.mp4',
-    mimetype: 'video/mp4',
-    contextInfo:{
-        externalAdReply:{
-            title:anuvidoke4.title,
-            body: botname,
-            thumbnail: await fetchBuffer(anuvidoke4.thumbnail),
-            mediaType:2,
-            mediaUrl:anuvidoke4.url,
-        }
-
-    },
-},{quoted:m})
-break
-case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
-const xeonaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
-const audio=await xeonaudp3.mp3(text)
-await XeonBotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: true,
-    contextInfo:{
-        externalAdReply:{
-            title:audio.meta.title,
-            body: botname,
-            thumbnail: await fetchBuffer(audio.meta.image),
-            mediaType:2,
-            mediaUrl:text,
-        }
-
-    },
-},{quoted:m})
-await fs.unlinkSync(audio.path)
-break
-	    case 'ytmp3xx': case 'ytaudioxx': {
-                let { yta } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
-                let quality = args[1] ? args[1] : '128kbps'
-                let media = await yta(text, quality)
-                if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
-                XeonBotInc.sendImage(m.chat, media.thumb, `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '128kbps'}`, m)
-                XeonBotInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
-            }
-            break
-case 'ytmp4': case 'ytvideo': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
-const xeonvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) throw `Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
-const vid=await xeonvidoh.mp4(text)
-const ytc=`
-*${themeemoji}Tittle:* ${vid.title}
-*${themeemoji}Date:* ${vid.date}
-*${themeemoji}Duration:* ${vid.duration}
-*${themeemoji}Quality:* ${vid.quality}`
-await XeonBotInc.sendMessage(m.chat,{
-    video: {url:vid.videoUrl},
-    caption: ytc
-},{quoted:m})
-break
-            case 'ytmp4xx': case 'ytvideoxx': {
+            case 'ytmp4': case 'yt' : {
                 let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
+                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=RNa4thokVJ4 360p`)
+                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid!`)
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
-                XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '360p'}` }, { quoted: m })
+                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
+                var buf = await getBuffer(`https://i.ibb.co/FsM1mD1/IMG-20220930-WA0007.jpg`)
+                const viddown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} Video ... 🔄*`)
+                await XeonBotInc.sendMessage(from, { delete: viddown.key })
+                const vidup = await  XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} Video ... 📤*`)   
+                const vid = await XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${global.ownername}` }, { quoted: m }).catch((err) => reply(mess.error))
+                await XeonBotInc.sendMessage(from, { delete: vidup.key }) 
             }
             break
+            
+                            break
+                            case 'ytmp3': {	    
+                                let { yta } = require('./lib/y2mate')
+                                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+                                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)
+                                let quality = args[1] ? args[1] : '128kbps'
+                                let media = await yta(text, quality)
+                                if (media.filesize >= 999999) return reply('*File Over Limit* '+util.format(media))                
+                                buf = await getBuffer(media.thumb) 
+                                const auddown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} song ... 🔄*`)
+                                await XeonBotInc.sendMessage(from, { delete: auddown.key })
+                                const audup = await XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} song ... 📤*`) 
+                                const aud = await XeonBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`}, { quoted: m }) .catch((err) => reply(mess.error))
+                                await XeonBotInc.sendMessage(from, { delete: audup.key })               
+                                }
+                            break
+	case 'video': case 'kavee':case 'ytmp4': { 
+        XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
+        if (!text) return reply(`Example : ${prefix + command} lelena`)
+ let yts = require("yt-search")
+ let search = await yts(text)
+ let anu = search.videos[0]
+ let buttons = [
+ {buttonId: `ytmp4 ${anu.url} 360p`, buttonText: {displayText: '360p'}, type: 1},
+ {buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+ {buttonId: `ytmp4 ${anu.url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+ ]
+ let buttonMessage = {
+ image: { url: anu.thumbnail },
+ caption: `*┏━━━❬KAVEESHA MD📌❭*
+     
+   📥 VIDEO DOWNLODER* 
+ 
+*┃🎬Title :* ${anu.title} 
+ 
+*┃🎲Duration :* ${anu.timestamp} 
+ 
+*┃🍁Author :* ${anu.author.name} 
+ 
+*┃🍁Url :* ${anu.url} 
+
+*┃🔖Runtime :* ${runtime(process.uptime())}
+ 
+
+
+┗━━━━━━━━━❊`,
+ footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
+ buttons: buttons,
+ headerType: 4,
+ }
+ XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+ }
+ break
+	
+
+
+	
+
+
+
+
+
 case 'pinterest': {
                 m.reply(mess.wait)
 		let { pinterest } = require('./lib/scraper')
