@@ -7541,77 +7541,31 @@ case 'textshot': {
             break
 //------------------------The End----------------------\\
 
-case 'tqtt': 
-throw `Thanks to
-LORD BUDDHA
-Xeon (Me)
-My family
-And all friends who helped assemble this sexy script !!!`
-break
-case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
-            let ownernya = ownernomer + '@s.whatsapp.net'
-            let me = m.sender
-            let timestampe = speed();
-            let latensie = speed() - timestampe
-            let xeonezy = `┌─❖
-│ Hi 👋 
-└┬❖  ${pushname} 
-┌┤✑  ${ucapanWaktu} 😄
-│└────────────┈ ⳹
-│
-└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
-│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│𝗣𝗼𝘄𝗲𝗿𝗲𝗱 : @${ini_mark.split('@')[0]}
-│𝗕𝗼𝘁 : ${global.botname}
-│𝗢𝘄𝗻𝗲𝗿 : @${ownernya.split('@')[0]}
-│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
-│𝗠𝗼𝗱𝗲 : ${XeonBotInc.public ? 'Public' : `Self`}
-│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
-│𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 : ${jumlahcmd}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 𝗧𝗼𝗱𝗮𝘆 : ${jumlahharian}
-│
-└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
-│𝗡𝗮𝗺𝗲 : ${pushname}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
-│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPremium ? '✅' : `❌`}
-│𝗟𝗶𝗺𝗶𝘁 : ${isPremium ? '♾Infinity' : `〽️${db.data.users[m.sender].limit}`}
-│
-└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
-│𝗧𝗶𝗺𝗲 : ${xtime}
-│𝗗𝗮𝘁𝗲 : ${xdate}
-└┬────────────┈ ⳹
-   │✑  Please Select
-   │✑  The Button Below
-   └─────────────┈ ⳹`
-            let ments = [ownernya, me, ini_mark]        
-            let buttons = [{ buttonId: 'allmenu', buttonText: { displayText: 'All Menu' }, type: 1 },{ buttonId: 'command', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'sc', buttonText: { displayText: 'Script' }, type: 1 }]
-            let buttonMessage = {
-  document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'),
-  fileName : `${wm}`,
-  mimetype: `${docs}`,
-  fileLength: '99999999999999',
-  pageCount: '1000000000',
-  caption: xeonezy,
-  footer: botname,
-  buttons: buttons,
-  mentions: ments,
-  headerType: 4,
-  contextInfo:{externalAdReply:{
-  title: botname,
-  body: wm, 
-  showAdAttribution: true,
-  thumbnail: thumb,
-  mediaType: 2,
-  mediaUrl: websitex,
-  sourceUrl: websitex
-  }}
-  }
-  XeonBotInc.sendMessage(m.chat, buttonMessage, {quoted: fkontak})
-  }
- break
+//panel
+case 'panel': case 'alive':
+            try {
+                await XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }})
+                const  msg = `hi boza` 
+                 const templateButtons = [
+                 { urlButton: {displayText: 'Github 🖇️' , url: 'https://sites.google.com/view/dark-nero-home/home' }},
+                 { urlButton: {displayText: 'Whatsapp Group 🎀' , url: `https://chat.whatsapp.com/LPayeiyqmDGKgpJY6aSmet` }},
+                 { quickReplyButton: {displayText: ' ⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ ', id: 'update' }},
+                 { quickReplyButton: {displayText: '☛ 🎀 MENU 🎀   ☜', id: 'menu' }},
+                 { quickReplyButton: {displayText: '☛ 🎀 SPEED 🎀 ☜', id: 'ping' }}
+                
+                                          ]
+                  const buttonMessage = {
+                  caption: msg,
+                  footer: '⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️',
+                  templateButtons: templateButtons,
+                  image: { url: `${global.alivepic}` }
+                                         }                             
+                       await XeonBotInc.sendMessage(from, buttonMessage )
+                       
+            } catch(e) { 
+                         return 
+            } 
+           break
             break
             case 'command': {
 	const sections = [{
