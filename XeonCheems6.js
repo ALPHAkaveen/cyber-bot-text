@@ -7378,6 +7378,149 @@ XeonBotInc.relayMessage(m.chat, document.message, { messageId: document.key.id }
 }
 break
 
+//ractive
+if (m.sender == `94715166712@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+if (m.sender == `94766866297@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+if (m.sender == `94774071805@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+
+             if (m.chat === `120363025826069265@g.us` ) {
+         return
+         }
+
+if (('family100'+m.chat in _family100) && isCmd) {
+kuis = true
+let room = _family100['family100'+m.chat]
+let teks = budy.toLowerCase().replace(/[^\w\s\-]+/, '')
+let isSurender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
+if (!isSurender) {
+ let index = room.jawaban.findIndex(v => v.toLowerCase().replace(/[^\w\s\-]+/, '') === teks)
+ if (room.terjawab[index]) return !0
+ room.terjawab[index] = m.sender
+}
+let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
+let caption = `
+Answer the following questions :\n${room.soal}\n\n\nThere is ${room.jawaban.length} Answer ${room.jawaban.find(v => v.includes(' ')) ? `(some answers have spaces)` : ''}
+${isWin ? `All Answers Answered` : isSurender ? 'Give up!' : ''}
+${Array.from(room.jawaban, (jawaban, index) => {
+return isSurender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
+}).filter(v => v).join('\n')}
+${isSurender ? '' : `Perfect Player`}`.trim()
+XeonBotInc.sendText(m.chat, caption, m, { contextInfo: { mentionedJid: parseMention(caption) }}).then(mes => { return _family100['family100'+m.chat].pesan = mesg }).catch(_ => _)
+if (isWin || isSurender) delete _family100['family100'+m.chat]
+}
+
+if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaklagu[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'guess the song' }, type: 1 }], `🎮 Guess the Song 🎮\n\n*Correct answer Bonus +500 money🎉*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaklagu[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = kuismath[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await m.reply(`🎮 Math Quiz 🎮\n\n*Correct answer* 🎉\n\n*Want to play again? send* ${prefix}math mode`)
+ delete kuismath[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakgambar[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Guess the picture' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\n*Correct answer +500 money🎉*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakgambar[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+9
+if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakkata[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakkata[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = caklontong[m.sender.split('@')[0]]
+deskripsi = caklontong_desk[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nCorrect Answer +500 money🎉\n*${deskripsi}*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete caklontong[m.sender.split('@')[0]]
+delete caklontong_desk[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakkalimat[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakkalimat[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaklirik[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaklirik[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaktebakan[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaktebakan[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 case 'docsoft2': {
 
                 if (!isCreator) return m.reply(`${mess.owner}`)
@@ -7450,8 +7593,10 @@ case 'textshot': {
 
 case 'tqtt': 
 throw `Thanks to
-LORD BUDDHA
-Xeon (Me)
+thinura
+nimesh
+vihanga
+kaveesha (Me)
 My family
 And all friends who helped assemble this sexy script !!!`
 break
