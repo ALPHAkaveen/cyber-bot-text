@@ -7378,10 +7378,6 @@ XeonBotInc.relayMessage(m.chat, document.message, { messageId: document.key.id }
 }
 break
 
-//ractive
-if (m.sender == `94715166712@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
-if (m.sender == `94766866297@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
-if (m.sender == `94774071805@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
 
  
 
