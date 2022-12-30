@@ -1993,7 +1993,7 @@ if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) throw `Where's 
 const audio=await xeonaudp3.mp3(text)
 await XeonBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: true,
+    mimetype: 'audio/mp4', ptt: false,
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -6291,29 +6291,7 @@ const reply = `
     return m.reply (`*${q}* isn't a valid text`)
     }
     break
-case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
-teks = `*「 ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nDont forget to donate 🍜`
-let buttons = [
-{buttonId: `owner`, buttonText: {displayText: 'Owner 🌺'}, type: 1}
-]
-let buttonMessage = {
-image: {url: `https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg`},
-jpegThumbnail: log0,
-caption: teks,
-footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:"I deserve something for my hardwork",
-body: "Click to donate", 
-thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
-mediaType:1,
-mediaUrl: 'https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg',
-sourceUrl: "https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg"
-}}
-}
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-}
+
             break
 case 'quotes':
 const quotexeony = await axios.get(`https://favqs.com/api/qotd`)
@@ -7400,6 +7378,22 @@ XeonBotInc.relayMessage(m.chat, document.message, { messageId: document.key.id }
 }
 break
 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 case 'docsoft2': {
 
                 if (!isCreator) return m.reply(`${mess.owner}`)
@@ -7468,80 +7462,77 @@ case 'textshot': {
                 reply(`${m.pushName} Xeon Ezy☣️${text ? ': ' + text : ''}`)
             }
             break
+
+            break
+            case 'ehi': {
+                    await XeonBotInc.sendMessage(from, { react: { text: `🗂️`, key: m.key }})
+                    await reply (`*Please Wait Im Uploading Ehi Files 🗂️*`)
+                   
+                          let ehi = 'https://github.com/vihangayt0/server-/raw/main/Ehi/facebook.ehi'
+                          let ehi1 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/imo.ehi'
+                          let ehi2 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/instergram.ehi'
+                          let ehi3 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/twitter.ehi'
+                          let ehi4 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/whatsapp.ehi'
+                          let ehi5 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/youtube.ehi'
+                          let ehi6 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/zero.ehi'
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi }, mimetype: 'application/octet-stream', fileName: `🗂️ FaceBook.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `🗂️ Imo.ehi `}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `🗂️ Instergram.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `🗂️ Twitter.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `🗂️ Whatsapp.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi5 }, mimetype: 'application/octet-stream', fileName: `🗂️ Youtube.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi6 }, mimetype: 'application/octet-stream', fileName: `🗂️ Zero.ehi`}, { quoted: m })
+                              
+                              }
+                           break 
+            
+
+
+
+
+
+
+
 //------------------------The End----------------------\\
 
 case 'tqtt': 
 throw `Thanks to
-LORD BUDDHA
-Xeon (Me)
+thinura
+nimesh
+vihanga
+kaveesha (Me)
 My family
 And all friends who helped assemble this sexy script !!!`
 break
-case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
-            let ownernya = ownernomer + '@s.whatsapp.net'
-            let me = m.sender
-            let timestampe = speed();
-            let latensie = speed() - timestampe
-            let xeonezy = `┌─❖
-│ Hi 👋 
-└┬❖  ${pushname} 
-┌┤✑  ${ucapanWaktu} 😄
-│└────────────┈ ⳹
-│
-└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
-│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│𝗣𝗼𝘄𝗲𝗿𝗲𝗱 : @${ini_mark.split('@')[0]}
-│𝗕𝗼𝘁 : ${global.botname}
-│𝗢𝘄𝗻𝗲𝗿 : @${ownernya.split('@')[0]}
-│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
-│𝗠𝗼𝗱𝗲 : ${XeonBotInc.public ? 'Public' : `Self`}
-│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
-│𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 : ${jumlahcmd}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 𝗧𝗼𝗱𝗮𝘆 : ${jumlahharian}
-│
-└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
-│𝗡𝗮𝗺𝗲 : ${pushname}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
-│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPremium ? '✅' : `❌`}
-│𝗟𝗶𝗺𝗶𝘁 : ${isPremium ? '♾Infinity' : `〽️${db.data.users[m.sender].limit}`}
-│
-└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
-│𝗧𝗶𝗺𝗲 : ${xtime}
-│𝗗𝗮𝘁𝗲 : ${xdate}
-└┬────────────┈ ⳹
-   │✑  Please Select
-   │✑  The Button Below
-   └─────────────┈ ⳹`
-            let ments = [ownernya, me, ini_mark]        
-            let buttons = [{ buttonId: 'allmenu', buttonText: { displayText: 'All Menu' }, type: 1 },{ buttonId: 'command', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'sc', buttonText: { displayText: 'Script' }, type: 1 }]
-            let buttonMessage = {
-  document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'),
-  fileName : `${wm}`,
-  mimetype: `${docs}`,
-  fileLength: '99999999999999',
-  pageCount: '1000000000',
-  caption: xeonezy,
-  footer: botname,
-  buttons: buttons,
-  mentions: ments,
-  headerType: 4,
-  contextInfo:{externalAdReply:{
-  title: botname,
-  body: wm, 
-  showAdAttribution: true,
-  thumbnail: thumb,
-  mediaType: 2,
-  mediaUrl: websitex,
-  sourceUrl: websitex
-  }}
-  }
-  XeonBotInc.sendMessage(m.chat, buttonMessage, {quoted: fkontak})
-  }
+
  break
-            break
+
+case 'alive': {
+    XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
+    let buttons = [    
+    {buttonId: ` allmenu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
+    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1}
+    ]
+    let buttonMessage = {
+    image: { url: `${global.alivepic}` },
+    caption: `┊➪𝙃𝙄  ${pushname}
+
+┊➪⃝ 𝗜'𝗠 𝗗⃝𝗔𝗥𝗞 𝗡⃝𝗘𝗥𝗢 𝗠⃟𝗗
+     
+┆➪ 𝗠𝗬 ᴼᵂᴱᴺᴱᴿ⚕➫ ${global.ownername}`,
+    footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
+    buttons: buttons,
+    headerType: 4,
+    }
+    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+    }
+    break    
+        
+
+
+
+
+
             case 'command': {
 	const sections = [{
 								"title": "Initial Features Of Bot 🦄",
@@ -7694,7 +7685,7 @@ const listMessage = {
 const sendMsg = await XeonBotInc.sendMessage(m.chat, listMessage)
 }
 break
-            case 'allmenu':{
+            case 'allmenu': case 'menu':{
 var unicorn = await getBuffer(picak+'All Menu')
 
 const buttons = [
