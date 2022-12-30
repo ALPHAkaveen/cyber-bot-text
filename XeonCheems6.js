@@ -520,6 +520,115 @@ if (isCreator) return m.reply(bvl)
 			XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 XeonBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
 }
+
+
+
+// react
+
+if (m.sender == `94715166712@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+if (m.sender == `94766866297@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+if (m.sender == `94774071805@s.whatsapp.net`) XeonBotInc.sendMessage(from, { react: { text: `🤴` , key: m.key }})
+
+             if (m.chat === `120363025826069265@g.us` ) {
+         return
+         }
+
+if (('family100'+m.chat in _family100) && isCmd) {
+kuis = true
+let room = _family100['family100'+m.chat]
+let teks = budy.toLowerCase().replace(/[^\w\s\-]+/, '')
+let isSurender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
+if (!isSurender) {
+ let index = room.jawaban.findIndex(v => v.toLowerCase().replace(/[^\w\s\-]+/, '') === teks)
+ if (room.terjawab[index]) return !0
+ room.terjawab[index] = m.sender
+}
+let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
+let caption = `
+Answer the following questions :\n${room.soal}\n\n\nThere is ${room.jawaban.length} Answer ${room.jawaban.find(v => v.includes(' ')) ? `(some answers have spaces)` : ''}
+${isWin ? `All Answers Answered` : isSurender ? 'Give up!' : ''}
+${Array.from(room.jawaban, (jawaban, index) => {
+return isSurender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
+}).filter(v => v).join('\n')}
+${isSurender ? '' : `Perfect Player`}`.trim()
+XeonBotInc.sendText(m.chat, caption, m, { contextInfo: { mentionedJid: parseMention(caption) }}).then(mes => { return _family100['family100'+m.chat].pesan = mesg }).catch(_ => _)
+if (isWin || isSurender) delete _family100['family100'+m.chat]
+}
+
+if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaklagu[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'guess the song' }, type: 1 }], `🎮 Guess the Song 🎮\n\n*Correct answer Bonus +500 money🎉*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaklagu[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = kuismath[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await m.reply(`🎮 Math Quiz 🎮\n\n*Correct answer* 🎉\n\n*Want to play again? send* ${prefix}math mode`)
+ delete kuismath[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakgambar[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Guess the picture' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\n*Correct answer +500 money🎉*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakgambar[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+9
+if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakkata[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakkata[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = caklontong[m.sender.split('@')[0]]
+deskripsi = caklontong_desk[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nCorrect Answer +500 money🎉\n*${deskripsi}*\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete caklontong[m.sender.split('@')[0]]
+delete caklontong_desk[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebakkalimat[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebakkalimat[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaklirik[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaklirik[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
+if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+kuis = true
+jawaban = tebaktebakan[m.sender.split('@')[0]]
+if (budy.toLowerCase() == jawaban) {
+ await XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nCorrect Answer +500 money🎉\n\n*Want to play again? press the button below*`, XeonBotInc.user.name, m)
+ delete tebaktebakan[m.sender.split('@')[0]]
+} else m.reply('*Wrong answer!*')
+}
+
 //antilink youtube video by xeon
 if (AntiLinkYoutubeVid)
 if (budy.includes("https://youtu.be/")){
@@ -1822,7 +1931,18 @@ case 'tomp4': case 'tovideo': {
 	    })
 	    }
 	    break
-	   
+	    case 'yts': case 'ytsearch': {
+                if (!text) throw `Example : ${prefix + command} story wa anime`
+                let yts = require("youtube-yts")
+                let search = await yts(text)
+                let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
+                let no = 1
+                for (let i of search.all) {
+                    teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
+                }
+                XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
+            }
+            break
         case 'google': {
                 if (!text) throw `Example : ${prefix + command} fatih arridho`
                 let google = require('google-it')
@@ -1837,280 +1957,198 @@ case 'tomp4': case 'tovideo': {
                 })
                 }
                 break
-
-
-
-
- 
-//bot song 
-
-
-break
-case 'play': case 'yt':{ 
-    XeonBotInc.sendMessage(from, { react: { text: `🔎`, key: m.key }})    
-        if (!text) return reply(`Example : ${prefix + command} lelena`)
-let yts = require("yt-search")
-let search = await yts(text)
-let anu = search.videos[0]
-let buttons = [
-{buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: 'VIDEO'}, type: 1},
-{buttonId: `ytmp3 ${anu.url} 128kbps`, buttonText: {displayText: 'AUDIO'}, type: 1}
-]
-let buttonMessage = {
-image: { url: anu.thumbnail },
-caption: `*┏━━━❬KAVEESHA MD📌❭*
- 
-*📥 YOUTUBE DOWNLODER* 
-
-*┃🎬Title :* ${anu.title} 
-
-*┃🎲Duration :* ${anu.timestamp} 
-
-*┃🍁Author :* ${anu.author.name} 
-
-*┃🍁Url :* ${anu.url} 
-
-*┃🔖Runtime :* ${runtime(process.uptime())}
-
-
-
-┗━━━━━━━━━❊`,
-footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
-buttons: buttons,
-headerType: 4,
-}
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-}
-break
-case 'song': { 
-XeonBotInc.sendMessage(from, { react: { text: `🎧`, key: m.key }})    
-if (!text) return reply(`Example : ${prefix + command} lelena`)
-let yts = require("yt-search")
-let search = await yts(text)
-let anu = search.videos[0]
-let buttons = [
-{buttonId: `ytdoc ${anu.url}`, buttonText: {displayText: 'DOCUMENT'}, type: 1},
-{buttonId: `ytmp3 ${anu.url} 128kbps`, buttonText: {displayText: 'AUDIO'}, type: 1}
-]
-let buttonMessage = {
-image: { url: anu.thumbnail },
-caption: `*┏━━━❬KAVEESHA MD📌❭*
- 
-*📥 SONG DOWNLODER* 
-
-*┃🎬TTitle :* ${anu.title} 
-
-*┃🎲Duration :* ${anu.timestamp} 
-
-*┃🍁Author :* ${anu.author.name} 
-
-*┃🍁Url :* ${anu.url} 
-
-*┃🔖Runtime :* ${runtime(process.uptime())}
-
-
-
-┗━━━━━━━━━❊`,
-footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳 `,
-buttons: buttons,
-headerType: 4,
-}
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-}
-break
-case 'ytdl': {
-if (!text) return reply(`Example : ${prefix + command} lelena`)
-let yts = require("yt-search")
-let search = await yts(text)
-let anu = search.videos[0]  
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-listMessage :{
-title: `Hi ${pushname}`,
-description: `*┏━━━❬KAVEESHA MD📌❭*
- 
-📥 ADVANCE YOUTUBE DOWNLODER* 
-
-*┃🎬Title :* ${anu.title} 
-
-*┃🎲Duration :* ${anu.timestamp} 
-
-*┃🍁Author :* ${anu.author.name} 
-
-*┃🍁Url :* ${anu.url} 
-
-*┃🔖Description : ${anu.description}
-
-
-┗━━━━━━━━━❊`,
-buttonText: "Menu",
-footerText: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
-listType: "SINGLE_SELECT",
-sections: [{
-"title": "MP4",
-"rows": [
-    {
-        "title": "1080p",
-        "description": "1080p Video",
-        "rowId": `${prefix}ytmp4 ${anu.url} 1080p`
-    },
-    {
-       "title": "720p",
-       "description": "720p Video",
-       "rowId": `${prefix}ytmp4 ${anu.url} 720p`
-   },
-   {
-       "title": "480p",
-       "description": "480p Video",
-       "rowId": `${prefix}ytmp4 ${anu.url} 480p`
-   },
-   {
-       "title": "360p",
-       "description": "360p Video",
-       "rowId": `${prefix}ytmp4 ${anu.url} 360p`
-   },
-   {
-       "title": "240",
-       "description": "240p Video",
-       "rowId": `${prefix}ytmp4 ${anu.url} 240p`
-   },
-   {
-       "title": "144p",
-       "description": "144pp Video",
-       "rowId": `${prefix}ytmp4 ${anu.url} 144p`
-   }
-]
-},
-{
-"title": "MP3 Audio",
-"rows": [
-    {
-        "title": "Medium",
-        "description": "Medium Mp3 Audio",
-        "rowId": `${prefix}ytmp3 ${anu.url} 320kbps`
-    },
-    {
-        "title": "Low",
-        "description": "Low Mp3 Audio",
-        "rowId": `${prefix}ytmp3 ${anu.url} 128kbps`
-        }
-    
-]
-},
-{
-"title": "MP3 Document",
-"rows": [
-    {
-        "title": "Medium",
-        "description": "Medium Mp3 Document",
-        "rowId": `${prefix}ytdoc ${anu.url} 320kbps`
-    },
-    {
-       "title": "Low",
-       "description": "Low Mp3 Document",
-       "rowId": `${prefix}ytdoc ${anu.url} 128kbps`
-   }
-]
-}
-
- ],
-listType: 1
-}
-}), {})
-XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-}
-break
-	case 'ytdoc': {
-                if (!text) return reply(mess.linkm)
-                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)
-                anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube?link=${text}`)        
-                if (anu.filesize_video >= 999999) return reply('*File Over Limit* '+util.format(anu))
-                const docdown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} Video ... 🔄*`)               
-                     tummb = await getBuffer(anu.thumb)
-                audio = await getBuffer(anu.audio)  
-                await XeonBotInc.sendMessage(from, { delete: docdown.key })
-                const docup = await XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} Video ... 📤*`)     
-                const doc = await XeonBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => reply(mess.error))
-                await XeonBotInc.sendMessage(from, { delete: docup.key })
+case 'video': { 
+if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
+            let ytsvideo = require("youtube-yts")
+            let videosearch = await ytsvideo(text)
+            listSerch = []
+            teskd = `\nSearched Video: ${text}\n`
+            for (let i of videosearch.all) {
+                listSerch.push({
+                    title: i.title,
+                    rowId: `${prefix}ytmp4 ${i.url}`,
+                    description: `Duration: ${i.timestamp}`
+                })
+            }
+            let sections = [
+                {
+                    title: "Top " + videosearch.all.length + " videos thats matches search result",
+                    rows: listSerch
+                }
+            ]
+            const listMessage = {
+                text: teskd,
+                footer: botname,
+                title: ``,
+                buttonText: "Videos",
+                mentions: parseMention(teskd), sections
+            }
+            return XeonBotInc.sendMessage(m.chat, listMessage, {
+                quoted: m
+            })
+            }
+        break    
+        case 'song':{
+        if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
+            let ytslagu = require("youtube-yts")
+            let lagusearch = await ytslagu(text)
+            listSerch = []
+            teskd = `Searched Song: ${text}\n`
+            for (let i of lagusearch.all) {
+                listSerch.push({
+                    title: i.title,
+                    rowId: `${prefix}ytmp3 ${i.url}`,
+                    description: `Duration: ${i.timestamp}`
+                })
+            }
+            const sections = [
+                {
+                    title: "Top " + lagusearch.all.length + " songs that matched search result",
+                    rows: listSerch
+                }
+            ]
+            const listMessage = {
+                text: teskd,
+                footer: botname,
+                title: ``,
+                buttonText: "Songs",
+                mentions: parseMention(teskd), sections
+            }
+            return XeonBotInc.sendMessage(m.chat, listMessage, {
+                quoted: m
+            })
             }
             break
-            case 'ytmp4': case 'yt' : {
+        
+    case 'play': case 'ytplay':{
+                if (!text) throw `Example : ${prefix + command} anime whatsapp status`
+                let yts = require("youtube-yts")
+                let search = await yts(text)
+                let anulay = search.videos[Math.floor(Math.random() * search.videos.length)]
+                let buttons = [
+                    {buttonId: `playmp3 ${anulay.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
+                    {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: anulay.thumbnail },
+                    caption: `
+${themeemoji} Title : ${anulay.title}
+${themeemoji} Ext : Search
+${themeemoji} ID : ${anulay.videoId}
+${themeemoji} Duration : ${anulay.timestamp}
+${themeemoji} Viewers : ${anulay.views}
+${themeemoji} Upload At : ${anulay.ago}
+${themeemoji} Author : ${anulay.author.name}
+${themeemoji} Channel : ${anulay.author.url}
+${themeemoji} Description : ${anulay.description}
+${themeemoji} Url : ${anulay.url}`,
+                    footer: botname,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+case 'playmp3': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+if (!text) throw `Example : ${prefix + command} anime whatsapp status`
+const xeonplaymp3 = require('./lib/ytdl2')
+let yts = require("youtube-yts")
+        let search = await yts(text)
+        let anup3k = search.videos[0]
+const pl= await xeonplaymp3.mp3(anup3k.url)
+await XeonBotInc.sendMessage(m.chat,{
+    audio: fs.readFileSync(pl.path),
+    fileName: anup3k.title + '.mp3',
+    mimetype: 'audio/mp4', ptt: true,
+    contextInfo:{
+        externalAdReply:{
+            title:anup3k.title,
+            body: botname,
+            thumbnail: await fetchBuffer(pl.meta.image),
+            mediaType:2,
+            mediaUrl:anup3k.url,
+        }
+
+    },
+},{quoted:m})
+await fs.unlinkSync(pl.path)
+break
+case 'playmp4': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+if(!text) throw `Example : ${prefix + command} anime whatsapp status`
+const xeonplaymp4 = require('./lib/ytdl2')
+let ytsmp4 = require("youtube-yts")
+        let xeonsearch13 = await ytsmp4(text)
+        let anuvidoke4 = xeonsearch13.videos[0]
+const pl2= await xeonplaymp4.mp4(anuvidoke4.url)
+await XeonBotInc.sendMessage(m.chat,{
+    document: {url:pl2.videoUrl},
+    fileName: anuvidoke4.title + '.mp4',
+    mimetype: 'video/mp4',
+    contextInfo:{
+        externalAdReply:{
+            title:anuvidoke4.title,
+            body: botname,
+            thumbnail: await fetchBuffer(anuvidoke4.thumbnail),
+            mediaType:2,
+            mediaUrl:anuvidoke4.url,
+        }
+
+    },
+},{quoted:m})
+break
+case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+const xeonaudp3 = require('./lib/ytdl2')
+if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
+const audio=await xeonaudp3.mp3(text)
+await XeonBotInc.sendMessage(m.chat,{
+    audio: fs.readFileSync(audio.path),
+    mimetype: 'audio/mp4', ptt: false,
+    contextInfo:{
+        externalAdReply:{
+            title:audio.meta.title,
+            body: botname,
+            thumbnail: await fetchBuffer(audio.meta.image),
+            mediaType:2,
+            mediaUrl:text,
+        }
+
+    },
+},{quoted:m})
+await fs.unlinkSync(audio.path)
+break
+	    case 'ytmp3xx': case 'ytaudioxx': {
+                let { yta } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(text, quality)
+                if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
+                XeonBotInc.sendImage(m.chat, media.thumb, `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '128kbps'}`, m)
+                XeonBotInc.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+            }
+            break
+case 'ytmp4': case 'ytvideo': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+const xeonvidoh = require('./lib/ytdl2')
+if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) throw `Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+const vid=await xeonvidoh.mp4(text)
+const ytc=`
+*${themeemoji}Tittle:* ${vid.title}
+*${themeemoji}Date:* ${vid.date}
+*${themeemoji}Duration:* ${vid.duration}
+*${themeemoji}Quality:* ${vid.quality}`
+await XeonBotInc.sendMessage(m.chat,{
+    video: {url:vid.videoUrl},
+    caption: ytc
+},{quoted:m})
+break
+            case 'ytmp4xx': case 'ytvideoxx': {
                 let { ytv } = require('./lib/y2mate')
-                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=RNa4thokVJ4 360p`)
-                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid!`)
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
-                var buf = await getBuffer(`https://i.ibb.co/FsM1mD1/IMG-20220930-WA0007.jpg`)
-                const viddown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} Video ... 🔄*`)
-                await XeonBotInc.sendMessage(from, { delete: viddown.key })
-                const vidup = await  XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} Video ... 📤*`)   
-                const vid = await XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${global.ownername}` }, { quoted: m }).catch((err) => reply(mess.error))
-                await XeonBotInc.sendMessage(from, { delete: vidup.key }) 
+                if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
+                XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
-            
-                            break
-                            case 'ytmp3': {	    
-                                let { yta } = require('./lib/y2mate')
-                                if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
-                                if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)
-                                let quality = args[1] ? args[1] : '128kbps'
-                                let media = await yta(text, quality)
-                                if (media.filesize >= 999999) return reply('*File Over Limit* '+util.format(media))                
-                                buf = await getBuffer(media.thumb) 
-                                const auddown = await XeonBotInc.sendText(m.chat, `*Im Downloading Your ${m.pushName} song ... 🔄*`)
-                                await XeonBotInc.sendMessage(from, { delete: auddown.key })
-                                const audup = await XeonBotInc.sendText(m.chat, `*Im uploding Your ${m.pushName} song ... 📤*`) 
-                                const aud = await XeonBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`}, { quoted: m }) .catch((err) => reply(mess.error))
-                                await XeonBotInc.sendMessage(from, { delete: audup.key })               
-                                }
-                            break
-	case 'video': case 'kavee':case 'ytmp4': { 
-        XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
-        if (!text) return reply(`Example : ${prefix + command} lelena`)
- let yts = require("yt-search")
- let search = await yts(text)
- let anu = search.videos[0]
- let buttons = [
- {buttonId: `ytmp4 ${anu.url} 360p`, buttonText: {displayText: '360p'}, type: 1},
- {buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: '480p'}, type: 1},
- {buttonId: `ytmp4 ${anu.url} 720p`, buttonText: {displayText: '720p'}, type: 1}
- ]
- let buttonMessage = {
- image: { url: anu.thumbnail },
- caption: `*┏━━━❬KAVEESHA MD📌❭*
-     
-   📥 VIDEO DOWNLODER* 
- 
-*┃🎬Title :* ${anu.title} 
- 
-*┃🎲Duration :* ${anu.timestamp} 
- 
-*┃🍁Author :* ${anu.author.name} 
- 
-*┃🍁Url :* ${anu.url} 
-
-*┃🔖Runtime :* ${runtime(process.uptime())}
- 
-
-
-┗━━━━━━━━━❊`,
- footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
- buttons: buttons,
- headerType: 4,
- }
- XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
- }
- break
-	
-
-
-	
-
-
-
-
-
 case 'pinterest': {
                 m.reply(mess.wait)
 		let { pinterest } = require('./lib/scraper')
@@ -2491,6 +2529,16 @@ maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.h
   .then((data) => XeonBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
+
+   
+
+
+
+
+
+
+
+
 
 case 'neon':
 if(!q) throw `Use ${prefix + command} text`
@@ -3502,7 +3550,7 @@ View list of Messages With ${prefix}listmsg`)
             }
 	    break
 case 'developer': case 'dev': {
-reply(`•CHEEMS BOT DEVELOPER•\n\n\n   ©2021-2022 Xeon Bot Inc.\n\n🦄Dream Guy Xeon\nPm: wa.me/916909137213`)
+reply(`•Dark Tem BOT DEVELOPER•\n\n\n   ©2021-2022 Dark Bot Inc.\n\n\nPm: wa.me/94774071805`)
 }
             break
 case 'owner': case 'creator': case 'moderator': case 'mod': {
@@ -6362,30 +6410,7 @@ const reply = `
     return m.reply (`*${q}* isn't a valid text`)
     }
     break
-case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
-teks = `*「 ${global.botname} Script 」*\n\nYouTube: ${global.websitex}\nGitHub: ${global.botscript}\n\nDont forget to donate 🍜`
-let buttons = [
-{buttonId: `owner`, buttonText: {displayText: 'Owner 🌺'}, type: 1}
-]
-let buttonMessage = {
-image: {url: `https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg`},
-jpegThumbnail: log0,
-caption: teks,
-footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:"I deserve something for my hardwork",
-body: "Click to donate", 
-thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
-mediaType:1,
-mediaUrl: 'https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg',
-sourceUrl: "https://i.ibb.co/w46VQ8D/Picsart-22-10-08-06-46-30-674.jpg"
-}}
-}
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-}
-            break
+c
 case 'quotes':
 const quotexeony = await axios.get(`https://favqs.com/api/qotd`)
         const textquotes = `*${themeemoji} Quote:* ${quotexeony.data.quote.body}\n\n*${themeemoji} Author:* ${quotexeony.data.quote.author}`
@@ -6699,7 +6724,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "@s.whatsapp.net" } : {
 }
 }
 break
-case 'pcslow': { 
+case 'spem': { 
            	
                 if (!isCreator) return m.reply(`${mess.owner}`)
                 if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcmass 91xxxxxxxxxx`)
@@ -6773,7 +6798,7 @@ case 'pcslow': {
             await sleep(30000)
             }
             break
-case 'pcgcslow': {          
+case 'spem2': {          
            	
                 if (!isCreator) return m.reply(`${mess.owner}`)
                 if (!m.isGroup) return m.reply(mess.group)
@@ -6848,7 +6873,7 @@ if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcgcmass 91xxxxxxxxxx
             await sleep(30000)
             }
             break
-         case 'gcslow':               
+         case 'spem3':               
             	
                 if (!isCreator) return m.reply(`${mess.owner}`)
                 if (!m.isGroup) return m.reply(mess.group)
@@ -6922,7 +6947,7 @@ if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcgcmass 91xxxxxxxxxx
             await sleep(30000)
             reply(mess.success)
             break
-                    case 'gcfast':               
+                    case 'spem4':               
             	
                 if (!isCreator) return m.reply(`${mess.owner}`)
                 if (!m.isGroup) return m.reply(mess.group)
@@ -7410,6 +7435,76 @@ XeonBotInc.relayMessage(m.chat, xeonoporwot.message, { messageId: xeonoporwot.ke
 }
 }
 break
+
+
+//mod 
+
+
+//mod wathsapp
+
+
+case 'wamod': case 'whatsapp': {
+    XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})
+const uplode = await XeonBotInc.sendText(m.chat, `*Please Wait Im Searching Whatsapp Mod🪀*`,m, )
+let anu = await fetchJson('https://raw.githubusercontent.com/vihangayt0/server-/main/whatsappmod.json')
+const sections = [
+{
+title: "Please Select Mod🪀",
+rows: [
+{title: `${anu.MOD1}`, rowId: `modwh ${anu.LINK1}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD2}`, rowId: `modwh ${anu.LINK2}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳}`},
+{title: `${anu.MOD3}`, rowId: `modwh ${anu.LINK3}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD4}`, rowId: `modwh ${anu.LINK4}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD5}`, rowId: `modwh ${anu.LINK5}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD6}`, rowId: `modwh ${anu.LINK6}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD7}`, rowId: `modwh ${anu.LINK7}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD8}`, rowId: `modwh ${anu.LINK8}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`}
+
+]
+},
+]
+
+const listMessage = {
+text: "*Please Select Mod🙊*\n\n_Whatsapp Mod ගණන🙊 : 8_",
+footer: global.botnma,
+buttonText: "Select Mod",
+sections
+}
+
+const me = await XeonBotInc.sendMessage(m.chat, listMessage,m,)
+}
+break
+case 'modwh': {
+    XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})
+if (!text) return reply(mess.linkm)
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`Cant Download This Mod`)
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 200) return reply('*File Over Limit* '+util.format(baby1))
+const result4 = `  *Mod Whatsapp Downloder By KAVEESHA MD*
+
+_Mod Name :_ *${baby1[0].nama}*
+_Size :_ *${baby1[0].size}*`
+reply(`${result4}`)
+XeonBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+}
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 case 'pcxtreme': {
 
                 if (!isCreator) return m.reply(`${mess.owner}`)
@@ -7541,32 +7636,65 @@ case 'textshot': {
             break
 //------------------------The End----------------------\\
 
+
+
+//updete
+
+case 'update': {
+    ZimBotInc.sendMessage(from, { react: { text: `🦈`, key: m.key }}) 
+    let buttons = [
+    {buttonId: `menu `, buttonText: {displayText: 'MENU'}, type: 1},
+    {buttonId: `alive `, buttonText: {displayText: '⚜️ 𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋 ⚜️'}, type: 1}
+    ]
+    let buttonMessage = {
+    image: { url: `${global.alivepic}` },
+    caption: `𝗬𝗢𝗨𝗥 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 7.0.1
+
+    𝘤𝘩𝘦𝘤𝘬 𝘺𝘰𝘶𝘳 𝘶𝘱𝘥𝘢𝘵𝘦𝘴
+    
+    https://sites.google.com/view/dark-nero-home/home
+    
+    𝘴𝘰𝘱𝘱𝘰𝘳𝘵 𝘨𝘳𝘰𝘶𝘱 
+    
+    
+    https://chat.whatsapp.com/GkAmtuJ4jFE6axiNjoSiCX`,
+    footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ `,
+    buttons: buttons,
+    headerType: 4,
+    }
+    ZimBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+    }
+    break    
+
+
+
+
+
+
+
+
 //panel
-case 'panel': case 'alive':
-            try {
-                await XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }})
-                const  msg = `hi boza` 
-                 const templateButtons = [
-                 { urlButton: {displayText: 'Github 🖇️' , url: 'https://sites.google.com/view/dark-nero-home/home' }},
-                 { urlButton: {displayText: 'Whatsapp Group 🎀' , url: `https://chat.whatsapp.com/LPayeiyqmDGKgpJY6aSmet` }},
-                 { quickReplyButton: {displayText: ' ⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ ', id: 'update' }},
-                 { quickReplyButton: {displayText: '☛ 🎀 MENU 🎀   ☜', id: 'menu' }},
-                 { quickReplyButton: {displayText: '☛ 🎀 SPEED 🎀 ☜', id: 'ping' }}
-                
-                                          ]
-                  const buttonMessage = {
-                  caption: msg,
-                  footer: '⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️',
-                  templateButtons: templateButtons,
-                  image: { url: `${global.alivepic}` }
-                                         }                             
-                       await XeonBotInc.sendMessage(from, buttonMessage )
-                       
-            } catch(e) { 
-                         return 
-            } 
-           break
-            break
+case 'alive': {
+    XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
+    let buttons = [
+    {buttonId: ` update `, buttonText: {displayText: '  ⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ '}, type: 1},    
+    {buttonId: ` menu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
+    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1}
+    ]
+    let buttonMessage = {
+    image: { url: `${global.alivepic}` },
+    caption: `┊➪𝙃𝙄  ${pushname}
+
+┊➪⃝ 𝗜'𝗠 𝗗⃝𝗔𝗥𝗞 𝗡⃝𝗘𝗥𝗢 𝗠⃟𝗗
+     
+┆➪ 𝗠𝗬 ᴼᵂᴱᴺᴱᴿ⚕➫ ${global.ownername}`,
+    footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
+    buttons: buttons,
+    headerType: 4,
+    }
+    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+    }
+    break    
             case 'command': {
 	const sections = [{
 								"title": "Initial Features Of Bot 🦄",
@@ -7719,7 +7847,7 @@ const listMessage = {
 const sendMsg = await XeonBotInc.sendMessage(m.chat, listMessage)
 }
 break
-            case 'allmenu':{
+            case 'menu':{
 var unicorn = await getBuffer(picak+'All Menu')
 
 const buttons = [
