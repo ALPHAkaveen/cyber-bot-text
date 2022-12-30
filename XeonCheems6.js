@@ -315,7 +315,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "" } : {})
 "url": "https://mmg.whatsapp.net/d/f/AgPwKRhs9an5F6WhnwXhdmhf8PX29TP_olqe4FIv1piE.enc",
 "fileSha256": "u1dFgoXE6JsB5bUricNLDnIBh9NFx4QMuPMLccYrcb0=",
 "fileEncSha256": "EK4PgZmQ6QoCl0GRQp3K8PCAzo9RXeMOU8NFjwnWXp0=",
-"mediaKey": "XJ4fPYzZ63TWovjXMHZQttVJLGpGN6wDjDpzdx7k=",
+"mediaKey": "XJ4fPYzZ63TWoziMvjXMHZQttVJLGpGN6wDjDpzdx7k=",
 "mimetype": "image/webp",
 "directPath": "/v/t62.15575-24/40664462_556808939544453_4219685480579374478_n.enc?ccb=11-4&oh=01_AVye92lzVBcYK_Ym5s5o-FrP_CF18W5sg9fb_Et5N3rV7g&oe=63639F3F",
 "fileLength": "14240",
@@ -7637,34 +7637,6 @@ case 'textshot': {
 //------------------------The End----------------------\\
 
 
-
-//updete
-
-case 'update': {
-    XeonBotInc.sendMessage(from, { react: { text: `🦈`, key: m.key }}) 
-    let buttons = [
-    {buttonId: `menu `, buttonText: {displayText: 'MENU'}, type: 1},
-    {buttonId: `alive `, buttonText: {displayText: '⚜️ 𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋 ⚜️'}, type: 1}
-    ]
-    let buttonMessage = {
-    image: { url: `${global.alivepic}` },
-    caption: `𝗬𝗢𝗨𝗥 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 7.0.1
-
-    𝘤𝘩𝘦𝘤𝘬 𝘺𝘰𝘶𝘳 𝘶𝘱𝘥𝘢𝘵𝘦𝘴
-    
-    https://sites.google.com/view/dark-nero-home/home
-    
-    𝘴𝘰𝘱𝘱𝘰𝘳𝘵 𝘨𝘳𝘰𝘶𝘱 
-    
-    
-    https://chat.whatsapp.com/GkAmtuJ4jFE6axiNjoSiCX`,
-    footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️ `,
-    buttons: buttons,
-    headerType: 4,
-    }
-    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-    }
-    break    
 
 
 
