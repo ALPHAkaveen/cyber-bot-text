@@ -7462,6 +7462,37 @@ case 'textshot': {
                 reply(`${m.pushName} Xeon Ezy☣️${text ? ': ' + text : ''}`)
             }
             break
+
+            break
+            case 'ehi': {
+                    await XeonBotInc.sendMessage(from, { react: { text: `🗂️`, key: m.key }})
+                    await reply (`*Please Wait Im Uploading Ehi Files 🗂️*`)
+                   
+                          let ehi = 'https://github.com/vihangayt0/server-/raw/main/Ehi/facebook.ehi'
+                          let ehi1 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/imo.ehi'
+                          let ehi2 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/instergram.ehi'
+                          let ehi3 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/twitter.ehi'
+                          let ehi4 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/whatsapp.ehi'
+                          let ehi5 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/youtube.ehi'
+                          let ehi6 = 'https://github.com/vihangayt0/server-/raw/main/Ehi/zero.ehi'
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi }, mimetype: 'application/octet-stream', fileName: `🗂️ FaceBook.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `🗂️ Imo.ehi `}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `🗂️ Instergram.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `🗂️ Twitter.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `🗂️ Whatsapp.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi5 }, mimetype: 'application/octet-stream', fileName: `🗂️ Youtube.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi6 }, mimetype: 'application/octet-stream', fileName: `🗂️ Zero.ehi`}, { quoted: m })
+                              
+                              }
+                           break 
+            
+
+
+
+
+
+
+
 //------------------------The End----------------------\\
 
 case 'tqtt': 
