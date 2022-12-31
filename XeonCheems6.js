@@ -1886,16 +1886,14 @@ case 'song': {
     }
     break
     
-    case 'video': case 'kavee': { 
+    case 'video': case 'kavee':case'yt': { 
         XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
               if (!text) return reply(`Example : ${prefix + command} lelena`)
        let yts = require("yt-search")
        let search = await yts(text)
        let anu = search.videos[0]
        let buttons = [
-       {buttonId: `ytmp4 ${anu.url} 360p`, buttonText: {displayText: '360p'}, type: 1},
-       {buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: '480p'}, type: 1},
-       {buttonId: `ytmp4 ${anu.url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+       {buttonId: `ytmp4 ${anu.url} 360p`, buttonText: {displayText: 'video'}, type: 1}
        ]
        let buttonMessage = {
        image: { url: anu.thumbnail },
@@ -4160,6 +4158,18 @@ m.reply('Success in turning off all antilink in this group')
   }
   }
   break
+
+  case 'alivepic' : {
+    if(!isCreator) throw mess.owner
+    global.alivepic = args[1]
+    replay('Alive pictire successfull changed')
+    }
+
+
+
+
+
+
 case 'antitoxic': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
@@ -7583,16 +7593,16 @@ break
 case 'alive': {
     XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
     let buttons = [    
-    {buttonId: ` allmenu `, buttonText: {displayText: '☛ 🎀 MENU 🎀   ☜'}, type: 1},
-    {buttonId: ` ping `, buttonText: {displayText: '☛ 🎀 SPEED 🎀 ☜'}, type: 1}
+    {buttonId: ` allmenu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
+    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1}
     ]
     let buttonMessage = {
     image: { url: `${global.alivepic}` },
-    caption: `┊➪𝗛𝗜  ${pushname}
+    caption: `┊➪𝙃𝙄  ${pushname}
 
 ┊➪⃝ 𝗜'𝗠 𝗗⃝𝗔𝗥𝗞 𝗡⃝𝗘𝗥𝗢 𝗠⃟𝗗
      
-┆➪ 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥➫ ${global.ownername}`,
+┆➪ 𝗠𝗬 ᴼᵂᴱᴺᴱᴿ⚕➫ ${global.ownername}`,
     footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
     buttons: buttons,
     headerType: 4,
@@ -7768,7 +7778,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ OWNER 	
+    caption: `┏━❰  OWNER  ❱	
 ┇◆ ${prefix}self
 ┇◆ ${prefix}public
 ┇◆ ${prefix}join [link]
@@ -8498,7 +8508,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ OWNER 	
+    caption: `┏━❰ OWNER ❱	
 ┇◆ ${prefix}self
 ┇◆ ${prefix}public
 ┇◆ ${prefix}join [link]
@@ -8530,7 +8540,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ GROUP 	
+    caption: `┏━❰ GROUP ❱	
 ┇◆${prefix}grouplink
 ┇◆${prefix}ephemeral [option]
 ┇◆${prefix}setgcpp [image]
@@ -8588,7 +8598,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ MAKER 	
+    caption: `┏━❰ MAKER ❱ 	
 ┇◆${prefix}candy
 ┇◆${prefix}8bit
 ┇◆${prefix}horror
@@ -8712,15 +8722,18 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ DOWNLOAD 	
+    caption: `┏━❰ DOWNLOAD ❱ 	
 ┇◆${prefix}tiktok [url]
 ┇◆${prefix}tiktokaudio [url]
 ┇◆${prefix}instagram [url]
 ┇◆${prefix}spotify [url]
 ┇◆${prefix}mediafire [url]
+┇◆${prefix}song
+┇◆${prefix}video
 ┇◆${prefix}ytmp3 [url|quality]
 ┇◆${prefix}ytmp4 [url|quality]
 ┇◆${prefix}gitclone [repo link]
+┇◆${prefix} ehi
 ╚═════════════✪`,
     footer: `${botname}`,
     buttons: buttons,
@@ -8739,7 +8752,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ SEARCH 	
+    caption: `┏━❰ SEARCH ❱	
 ┇◆${prefix}play [query]
 ┇◆${prefix}song [query]
 ┇◆${prefix}yts [query]
@@ -8776,7 +8789,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ CONVERT 	
+    caption: `┏━❰ CONVERT ❱ 	
 ┇◆ ${prefix}toimage [reply stick]
 ┇◆ ${prefix}sticker [reply img|gif]
 ┇◆ ${prefix}take [reply img|gif|stik]
@@ -8822,7 +8835,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ RANDOM IMG 	
+    caption: `┏━❰ RANDOM IMG ❱ 	
 ┇◆${prefix}coffee
 ┇◆${prefix}woof
 ┇◆${prefix}meow
@@ -8878,7 +8891,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ RANDOM VIDEO
+    caption: `┏━❰ RANDOM VIDEO ❱
 ┇◆${prefix}tiktokgirl	
 ┇◆${prefix}tiktoknukhty
 ┇◆${prefix}tiktokpanrika
@@ -8905,7 +8918,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ EMOTE 	
+    caption: `┏━❰  EMOTE ❱	
 ┇◆${prefix}instagramemoji
 ┇◆${prefix}facebookemoji
 ┇◆${prefix}iphoneemoji
@@ -8936,7 +8949,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═════✪ IMG EFFECT 	
+    caption: `┏━❰ IMG EFFECT ❱ 	
 ┇◆${prefix}removebg [reply img]
 ╚═════════════✪`,
     footer: `${botname}`,
@@ -8956,7 +8969,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ ANIME 	
+    caption: `┏━❰  ANIME  ❱	
 ┇◆${prefix}animeneko
 ┇◆${prefix}waifu
 ┇◆${prefix}shinobu
@@ -9026,7 +9039,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ STICKER 	
+    caption: `┏━❰  STICKER  ❱	
 ┇◆ ${prefix}patrick
 ┇◆ ${prefix}emoji
 ┇◆ ${prefix}emojimix
@@ -9056,7 +9069,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ ANIME STICKER 	
+    caption: `┏━❰  ANIME STICKER ❱	
 ┇◆${prefix}loli
 ┇◆${prefix}bully
 ┇◆${prefix}cuddle
@@ -9104,7 +9117,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ NSFW 	
+    caption: `┏━❰  NSFW  ❱	
 ┇◆${prefix}gifhentai
 ┇◆${prefix}gifblowjob
 ┇◆${prefix}hentaivideo
@@ -9158,7 +9171,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ Fun 
+    caption: `┏━❰  Fun ❱ 
 ┇◆ ${prefix}say [text]	
 ┇◆ ${prefix}define [text]
 ┇◆ ${prefix}how [text]
@@ -9252,7 +9265,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ Sound 	
+    caption: `┏━❰ Sound ❱	
 ┇◆ ${prefix}sound1
 ┇◆ ${prefix}sound2
 ┇◆ ${prefix}sound3
@@ -9432,7 +9445,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ GAME 	
+    caption: `┏━❰ GAME ❱ 	
 ┇◆ ${prefix}truth
 ┇◆ ${prefix}dare
 ┇◆ ${prefix}tictactoe
@@ -9458,7 +9471,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══✪ ANONYMOUS 	
+    caption: `┏━❰ ANONYMOUS❱ 	
 ┇◆${prefix}anonymous
 ┇◆${prefix}start
 ┇◆${prefix}next
@@ -9481,7 +9494,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══✪ DATABASE 	
+    caption: `┏━❰ DATABASE ❱ 	
 ┇◆ ${prefix}setcmd
 ┇◆ ${prefix}listcmd
 ┇◆ ${prefix}delcmd
@@ -9508,7 +9521,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ OTHER 	
+    caption: `┏━❰ OTHER ❱ 	
 ┇◆ ${prefix}afk
 ┇◆ ${prefix}id
 ┇◆ ${prefix}toqr [link]
@@ -9547,7 +9560,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪「 BUG MENU 」	
+    caption: `┏━❰  BUG MENU ❱	
 ┇◆════☾pc attack☽
 ┇◆${prefix}pcbut [number]
 ┇◆${prefix}pcvn [number]
