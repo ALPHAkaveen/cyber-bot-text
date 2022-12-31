@@ -7525,7 +7525,7 @@ if (!text) return reply(mess.linkm)
 if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`Cant Download This Mod`)
 const baby1 = await mediafireDl(text)
 if (baby1[0].size.split('MB')[0] >= 200) return reply('*File Over Limit* '+util.format(baby1))
-const result4 = `  *Mod Whatsapp Downloder By KAVEESHA MD*
+const result4 = `  *Mod Whatsapp Downloder By DARK NERO MD*
 
 _Mod Name :_ *${baby1[0].nama}*
 _Size :_ *${baby1[0].size}*`
@@ -7558,16 +7558,16 @@ break
 case 'alive': {
     XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
     let buttons = [    
-    {buttonId: ` allmenu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
-    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1}
+    {buttonId: ` allmenu `, buttonText: {displayText: '🎀    MENU     🎀'}, type: 1},
+    {buttonId: ` ping `, buttonText: {displayText: '🎀    SPEED    🎀'}, type: 1}
     ]
     let buttonMessage = {
     image: { url: `${global.alivepic}` },
-    caption: `┊➪𝙃𝙄  ${pushname}
+    caption: `┊➪𝗛𝗜  ${pushname}
 
 ┊➪⃝ 𝗜'𝗠 𝗗⃝𝗔𝗥𝗞 𝗡⃝𝗘𝗥𝗢 𝗠⃟𝗗
      
-┆➪ 𝗠𝗬 ᴼᵂᴱᴺᴱᴿ⚕➫ ${global.ownername}`,
+┆➪ 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥➫ ${global.ownername}`,
     footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
     buttons: buttons,
     headerType: 4,
