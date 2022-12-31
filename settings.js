@@ -31,8 +31,8 @@ global.websitex = "https://youtu.be/WiIqCdiDjFo" //ur website to be displayed
 global.botscript = 'https://github.com/DGXeon/CheemsBot-MD6' //script link
 global.themeemoji = "🦄" //ur theme emoji
 global.packname = "Sticker By" //ur sticker watermark packname
-global.author = "Cheems Bot\n\n\nA whatsapp bot developed by\n🦄Dream Guy Xeon\n\n\n\n\n\n\n\n       --------______-------\n\n\n\n\n\n\n\nContact No. : +916909137213" //ur sticker watermark author
-global.wm = "Dark Bot Inc." //ur watermark
+global.author = "Dark Nero\n\n\nA whatsapp bot developed by\n🐶Cyber X Team" //ur sticker watermark author
+global.wm = "ᴅᴀʀᴋ ʙᴏᴛ ɪɴᴄ." //ur watermark
 
 // Other
 global.sessionName = 'session'
