@@ -25,17 +25,7 @@ Cheems Bot Multi Device is a automated whatsapp bot developed by <a href="https:
 ## ```Connect With Me```
 <p align="center">
 <a href="https://wa.me/+94774071805"><img src="https://img.shields.io/badge/Contact darktem-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="(https://chat.whatsapp.com/GkAmtuJ4jFE6axiNjoSiCX)"><img src="https://img.shields.io/badge/Join Official GC-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://youtube.com/channel/UCvAo9TZ0Pw9vrJ_0WYRyO3A"><img src="https://img.shields.io/badge/Subscribe Xeon-ff0000?style=for-the-badge&logo=youtube&logoColor=ff000000&link=https://youtube.com/@DGXeon" /><br>
-</p>
 
-## ```Donate Me```
-
-- [`FamPay`](https://i.ibb.co/SKkw6Sy/IMG-20221223-WA0373.jpg)
-
-<p align="left">
-Scan qr code from the above button, u can pay through GooglePay, Paytm, PhonePe and FamPay.
-</p>
 
 ## ```Bot Support Groups```
 
