@@ -105,10 +105,6 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 # > THANKS FOR CHOOSING DARK NERO BOT WE APPRECIATE YOU FOR YOUR SUPPORT
  
-# > KUMUTHU 
 # > VIHANGA
 # > NIMESH
 # > THINURA
-# > LAKHAN
-# > pramu
-# > Amra
