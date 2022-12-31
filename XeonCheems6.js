@@ -3913,7 +3913,9 @@ case'gn':
 case'bot':
 case'hmm':
 case'mk':
-
+case'kawuda':
+case'morning':
+case'nama':
 XeonBotInc_dev = await getBuffer(`https://github.com/nimaofficial/Server/raw/main/Audio/${command}.mp3`)
 await XeonBotInc.sendMessage(m.chat, { audio: XeonBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
@@ -3923,7 +3925,33 @@ break
 
 
 
+// updete 
 
+case 'update': case 'script': {
+    XeonBotInc.sendMessage(from, { react: { text: `🦈`, key: m.key }}) 
+    let buttons = [  
+    {buttonId: `menu `, buttonText: {displayText: 'MENU'}, type: 1},
+    {buttonId: `alive `, buttonText: {displayText: '⚜️ 𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋 ⚜️'}, type: 1}
+    ]
+    let buttonMessage = {
+    image: { url: `${global.alivepic}` },
+    caption: `𝗬𝗢𝗨𝗥 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 𝟳
+
+    𝘤𝘩𝘦𝘤𝘬 𝘺𝘰𝘶𝘳 𝘶𝘱𝘥𝘢𝘵𝘦𝘴
+    
+    https://www.darknero.ga
+    
+    𝘴𝘰𝘱𝘱𝘰𝘳𝘵 𝘨𝘳𝘰𝘶𝘱 
+    
+    
+    https://chat.whatsapp.com/GkAmtuJ4jFE6axiNjoSiCX`,
+    footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
+    buttons: buttons,
+    headerType: 4,
+    }
+    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+    }
+    break
 
 
 
@@ -7628,7 +7656,8 @@ nimesh
 vihanga
 kaveesha (Me)
 My family
-And all friends who helped assemble this sexy script !!!`
+And all friends who helped assemble this sexy script !!!
+සහ මෙම සරාගී පිටපත එකලස් කිරීමට උදව් කළ සියලුම මිතුරන් !!!`
 break
 
  break
@@ -7637,7 +7666,8 @@ case 'alive': {
     XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
     let buttons = [    
     {buttonId: ` allmenu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
-    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1}
+    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1},
+    {buttonId: ` command `, buttonText: {displayText: '☛  List MENU   ☜'}, type: 1}
     ]
     let buttonMessage = {
     image: { url: `${global.alivepic}` },
@@ -7803,7 +7833,7 @@ case 'alive': {
 						]
 const listMessage = {
   text: "Please choose the menu",
-  footer: `${botname}\n📍YouTube: ${websitex}\n🍜Script: ${botscript}`,
+  footer: `${botname}\n📍YouTube: ${websitex}\n✍️Script: ${websitex}`,
   title: `Hi 👋 ${pushname}`,
   buttonText: "Menu",
   sections
