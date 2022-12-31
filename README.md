@@ -38,7 +38,7 @@ Cheems Bot Multi Device is a automated whatsapp bot developed by <a href="https:
 - FORK THE REPOSITORY [Here](https://github.com/ALPHAkaveen/cyber-bot-text/fork)
 
 ## `Scan QR Code For Session`
-[![Cheems Bot](https://repl.it/badge/github/quiec/whatsasena)]https://replit.com/@nimaofficial/KING-ALPHA-QR#index.js)
+[![Cheems Bot](https://repl.it/badge/github/quiec/whatsasena)](https://replit.com/@DGXeon/Cheems-Bot-Multi-Device-Qr-Code-Generator?output%20only=1&lite=1#index.js)
 
  ` BUILDPACKS`
 
