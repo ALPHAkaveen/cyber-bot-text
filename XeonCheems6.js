@@ -3909,7 +3909,8 @@ case 'setthumb':{
 
 case'ai':
 case'Hi':
-case '.alive':
+case 'alive':
+case'Gn':    
 XeonBotInc_dev = await getBuffer(`https://github.com/nimaofficial/Server/raw/main/Audio/${command}.mp3`)
 await XeonBotInc.sendMessage(m.chat, { audio: XeonBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
