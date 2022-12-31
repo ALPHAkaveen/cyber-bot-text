@@ -3903,6 +3903,44 @@ case 'setthumb':{
                m.reply(mess.success)
             }
           break
+
+
+//auto riply
+
+
+case '.alive':
+XeonBotInc_dev = await getBuffer(`https://github.com/nimaofficial/Server/raw/main/Audio/${command}.mp3`)
+await XeonBotInc.sendMessage(m.chat, { audio: XeonBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 case 'creategroup':
 if (!isCreator) return m.reply(mess.owner)
 if (!q) return reply("Enter text")
