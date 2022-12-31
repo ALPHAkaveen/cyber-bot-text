@@ -7665,17 +7665,17 @@ break
 case 'alive': {
     XeonBotInc.sendMessage(from, { react: { text: `🐨`, key: m.key }}) 
     let buttons = [    
-    {buttonId: ` allmenu `, buttonText: {displayText: '☛    MENU     ☜'}, type: 1},
-    {buttonId: ` ping `, buttonText: {displayText: '☛    SPEED    ☜'}, type: 1},
-    {buttonId: ` command `, buttonText: {displayText: '☛  List MENU   ☜'}, type: 1}
+    {buttonId: ` allmenu `, buttonText: {displayText: '☛ 🎀 MENU 🎀 ☜'}, type: 1},
+    {buttonId: ` ping `, buttonText: {displayText: '☛ 🎀 SPEED 🎀 ☜'}, type: 1},
+    {buttonId: ` command `, buttonText: {displayText: '☛ 🎀 List MENU 🎀 ☜'}, type: 1}
     ]
     let buttonMessage = {
     image: { url: `${global.alivepic}` },
-    caption: `┊➪𝙃𝙄  ${pushname}
+    caption: `┊➪𝗛𝗶  ${pushname}
 
 ┊➪⃝ 𝗜'𝗠 𝗗⃝𝗔𝗥𝗞 𝗡⃝𝗘𝗥𝗢 𝗠⃟𝗗
      
-┆➪ 𝗠𝗬 ᴼᵂᴱᴺᴱᴿ⚕➫ ${global.ownername}`,
+┆➪ 𝗠𝗬 𝗢𝗪𝗡𝗘𝗥➫ ${global.ownername}`,
     footer: `⚜️𝘋𝘈𝘙𝘒 𝘕𝘌𝘙𝘖 𝘔𝘋⚜️`,
     buttons: buttons,
     headerType: 4,
