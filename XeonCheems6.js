@@ -1847,69 +1847,94 @@ case 'tomp4': case 'tovideo': {
                 })
                 }
                 break
-case 'video': { 
-if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
-            let ytsvideo = require("youtube-yts")
-            let videosearch = await ytsvideo(text)
-            listSerch = []
-            teskd = `\nSearched Video: ${text}\n`
-            for (let i of videosearch.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp4 ${i.url}`,
-                    description: `Duration: ${i.timestamp}`
-                })
-            }
-            let sections = [
-                {
-                    title: "Top " + videosearch.all.length + " videos thats matches search result",
-                    rows: listSerch
-                }
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: botname,
-                title: ``,
-                buttonText: "Videos",
-                mentions: parseMention(teskd), sections
-            }
-            return XeonBotInc.sendMessage(m.chat, listMessage, {
-                quoted: m
-            })
-            }
-        break    
-        case 'song':{
-        if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
-            let ytslagu = require("youtube-yts")
-            let lagusearch = await ytslagu(text)
-            listSerch = []
-            teskd = `Searched Song: ${text}\n`
-            for (let i of lagusearch.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp3 ${i.url}`,
-                    description: `Duration: ${i.timestamp}`
-                })
-            }
-            const sections = [
-                {
-                    title: "Top " + lagusearch.all.length + " songs that matched search result",
-                    rows: listSerch
-                }
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: botname,
-                title: ``,
-                buttonText: "Songs",
-                mentions: parseMention(teskd), sections
-            }
-            return XeonBotInc.sendMessage(m.chat, listMessage, {
-                quoted: m
-            })
-            }
-            break
-        
+//song dawun by kaveesha
+
+
+case 'song': { 
+    XeonBotInc.sendMessage(from, { react: { text: `🎧`, key: m.key }})    
+    if (!text) return reply(`Example : ${prefix + command} lelena`)
+    let yts = require("yt-search")
+    let search = await yts(text)
+    let anu = search.videos[0]
+    let buttons = [
+    {buttonId: `ytmp3 ${anu.url} 128kbps`, buttonText: {displayText: 'AUDIO'}, type: 1}
+    ]
+    let buttonMessage = {
+    image: { url: anu.thumbnail },
+    caption: `*┏━━━❬ DarkNero MD📌❭*
+     
+    *📥 SONG DOWNLODER* 
+    
+    *┃🎬TTitle :* ${anu.title} 
+    
+    *┃🎲Duration :* ${anu.timestamp} 
+    
+    *┃🍁Author :* ${anu.author.name} 
+    
+    *┃🍁Url :* ${anu.url} 
+    
+    *┃🔖Runtime :* ${runtime(process.uptime())}
+    
+    
+    
+    ┗━━━━━━━━━❊`,
+    footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳 `,
+    buttons: buttons,
+    headerType: 4,
+    }
+    XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+    }
+    break
+    
+    case 'video': case 'kavee': { 
+        XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
+              if (!text) return reply(`Example : ${prefix + command} lelena`)
+       let yts = require("yt-search")
+       let search = await yts(text)
+       let anu = search.videos[0]
+       let buttons = [
+       {buttonId: `ytmp4 ${anu.url} 360p`, buttonText: {displayText: '360p'}, type: 1},
+       {buttonId: `ytmp4 ${anu.url} 480p`, buttonText: {displayText: '480p'}, type: 1},
+       {buttonId: `ytmp4 ${anu.url} 720p`, buttonText: {displayText: '720p'}, type: 1}
+       ]
+       let buttonMessage = {
+       image: { url: anu.thumbnail },
+       caption: `*┏━━━❬ DarkNero MD📌❭*
+           
+         📥 VIDEO DOWNLODER* 
+       
+      *┃🎬Title :* ${anu.title} 
+       
+      *┃🎲Duration :* ${anu.timestamp} 
+       
+      *┃🍁Author :* ${anu.author.name} 
+       
+      *┃🍁Url :* ${anu.url} 
+      
+      *┃🔖Runtime :* ${runtime(process.uptime())}
+       
+      
+      
+      ┗━━━━━━━━━❊`,
+       footer: `𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`,
+       buttons: buttons,
+       headerType: 4,
+       }
+       XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+       }
+       break
+          
+      
+
+
+
+
+
+
+
+
+
+
     case 'play': case 'ytplay':{
                 if (!text) throw `Example : ${prefix + command} anime whatsapp status`
                 let yts = require("youtube-yts")
