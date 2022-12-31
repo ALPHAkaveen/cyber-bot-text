@@ -32,7 +32,7 @@ global.botscript = 'https://github.com/DGXeon/CheemsBot-MD6' //script link
 global.themeemoji = "🦄" //ur theme emoji
 global.packname = "Sticker By" //ur sticker watermark packname
 global.author = "Dark Nero\n\n\nA whatsapp bot developed by\n🐶Cyber X Team" //ur sticker watermark author
-global.wm = "ᴅᴀʀᴋ ʙᴏᴛ ɪɴᴄ." //ur watermark
+global.wm = "ᴅᴀʀᴋ ɴʀᴏ ɪɴᴄ." //ur watermark
 
 // Other
 global.sessionName = 'session'
