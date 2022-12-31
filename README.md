@@ -1,6 +1,6 @@
 
 
-<h1 align="center">ꪶ𝗖𝗵𝗲𝗲𝗺𝘀 𝗕𝗼𝘁-𝗠𝗗 𝗩6ꫂ<br></h1>
+<h1 align="center">Dark Nero bot v7<br></h1>
 <p align="center">
 <img src="https://i.ibb.co/K0RtK0Z/IMG-20221021-WA0089.jpg" alt="animated" width="540" height="280" />
 </p>
