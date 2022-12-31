@@ -7474,13 +7474,13 @@ case 'textshot': {
                           let ehi4 = 'https://github.com/nimaofficial/Server/raw/main/Ehi/YouTube.ehi'
                           let ehi5 = 'https://github.com/nimaofficial/Server/raw/main/Ehi/Facebook.ehi'
                           let ehi6 = 'https://github.com/nimaofficial/Server/raw/main/Ehi/Instergram.ehi'
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi }, mimetype: 'application/octet-stream', fileName: `🗂️ Zoom.ehi`}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `🗂️ Zero.ehi `}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `🗂️ Twitter.ehi`}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `🗂️ Whatsapp.ehi`}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `🗂️ YouTube.ehi`}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi5 }, mimetype: 'application/octet-stream', fileName: `🗂️ Facebook.ehi`}, { quoted: m })
-                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi6 }, mimetype: 'application/octet-stream', fileName: `🗂️ Instergram.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi }, mimetype: 'application/octet-stream', fileName: `🟣 Zoom 🟣.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi1 }, mimetype: 'application/octet-stream', fileName: `🟣 Zero 🟣.ehi `}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi2 }, mimetype: 'application/octet-stream', fileName: `🟣 Twitter 🟣.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi3 }, mimetype: 'application/octet-stream', fileName: `🟣 Whatsapp 🟣.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi4 }, mimetype: 'application/octet-stream', fileName: `🟣 YouTube 🟣.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi5 }, mimetype: 'application/octet-stream', fileName: `🟣 Facebook 🟣.ehi`}, { quoted: m })
+                              await XeonBotInc.sendMessage(m.chat, { document: { url: ehi6 }, mimetype: 'application/octet-stream', fileName: `🟣 Instergram 🟣.ehi`}, { quoted: m })
                               
                               }
                            break 
