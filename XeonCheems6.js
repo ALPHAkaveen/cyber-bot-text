@@ -7491,7 +7491,7 @@ case 'textshot': {
 case 'wamod': case 'whatsapp': {
     XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})
 const uplode = await XeonBotInc.sendText(m.chat, `*Please Wait Im Searching Whatsapp Mod🪀*`,m, )
-let anu = await fetchJson('https://raw.githubusercontent.com/vihangayt0/server-/main/whatsappmod.json')
+let anu = await fetchJson('https://raw.githubusercontent.com/nimaofficial/Server/main/whatsappmod.json')
 const sections = [
 {
 title: "Please Select Mod🪀",
