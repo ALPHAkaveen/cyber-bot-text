@@ -243,14 +243,14 @@ antilink: false,
             if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
 	    if (setting) {
 		if (!isNumber(setting.status)) setting.status = 0
-		if (!('autobio' in setting)) setting.autobio = false
+		if (!('autobio' in setting)) setting.autobio = true
 		if (!('templateImage' in setting)) setting.templateImage = true
 		if (!('templateVideo' in setting)) setting.templateVideo = false
 		if (!('templateGif' in setting)) setting.templateGif = false
 		if (!('templateMsg' in setting)) setting.templateMsg = false	
 	    } else global.db.data.settings[botNumber] = {
 		status: 0,
-		autobio: false,
+		autobio: true,
 		templateImage: true,
 		templateVideo: false,
 		templateGif: false,
@@ -398,8 +398,7 @@ let buttonMessage = {
    }}
        }
    XeonBotInc.sendMessage(m.chat, buttonMessage, options)
-   }
-                
+   }                
         // Autosticker gc
         if (isAutoSticker) {
             if (/image/.test(mime) && !/webp/.test(mime)) {
@@ -7486,6 +7485,55 @@ case 'textshot': {
                               }
                            break 
             
+//wamod
+
+
+case 'wamod': case 'whatsapp': {
+    XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})
+const uplode = await XeonBotInc.sendText(m.chat, `*Please Wait Im Searching Whatsapp Mod🪀*`,m, )
+let anu = await fetchJson('https://raw.githubusercontent.com/vihangayt0/server-/main/whatsappmod.json')
+const sections = [
+{
+title: "Please Select Mod🪀",
+rows: [
+{title: `${anu.MOD1}`, rowId: `modwh ${anu.LINK1}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD2}`, rowId: `modwh ${anu.LINK2}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳}`},
+{title: `${anu.MOD3}`, rowId: `modwh ${anu.LINK3}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD4}`, rowId: `modwh ${anu.LINK4}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD5}`, rowId: `modwh ${anu.LINK5}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD6}`, rowId: `modwh ${anu.LINK6}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD7}`, rowId: `modwh ${anu.LINK7}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`},
+{title: `${anu.MOD8}`, rowId: `modwh ${anu.LINK8}`, description: `Whatsapp Mod🪀 Downloader By 𝙳⃝𝙰𝚁𝙺 𝙽⃟𝙴𝚁𝙾 𝙼⃝𝙳`}
+
+]
+},
+]
+
+const listMessage = {
+text: "*Please Select Mod🙊*\n\n_Whatsapp Mod ගණන🙊 : 8_",
+footer: global.botnma,
+buttonText: "Select Mod",
+sections
+}
+
+const me = await XeonBotInc.sendMessage(m.chat, listMessage,m,)
+}
+break
+case 'modwh': {
+    XeonBotInc.sendMessage(from, { react: { text: `🪀`, key: m.key }})
+if (!text) return reply(mess.linkm)
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`Cant Download This Mod`)
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 200) return reply('*File Over Limit* '+util.format(baby1))
+const result4 = `  *Mod Whatsapp Downloder By KAVEESHA MD*
+
+_Mod Name :_ *${baby1[0].nama}*
+_Size :_ *${baby1[0].size}*`
+reply(`${result4}`)
+XeonBotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
+}
+break
+
 
 
 
