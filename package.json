@@ -27,6 +27,7 @@
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
+    "express": "latest",
     "cheerio": "^1.0.0-rc.12",
     "child_process": "^1.0.2",
     "crypto": "^1.0.1",
